@@ -1,0 +1,89 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 213 31% 91%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --ring: 216 34% 17%;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(to bottom, #0f172a, #1e293b);
+  }
+}
+
+@layer components {
+  .movie-card {
+    @apply relative overflow-hidden rounded-2xl transition-all duration-500 hover:scale-105 bg-black/20 backdrop-blur-sm border border-white/10;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .movie-card img {
+    @apply w-full h-[400px] object-cover transition-transform duration-500;
+  }
+
+  .movie-card:hover img {
+    @apply scale-110;
+  }
+
+  .movie-info {
+    @apply absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/90 to-transparent text-white transform transition-all duration-500;
+    backdrop-filter: blur(8px);
+  }
+
+  .movie-card:hover .movie-info {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .search-container {
+    @apply relative z-10 mb-12 w-full max-w-3xl mx-auto;
+  }
+
+  .search-input {
+    @apply w-full px-6 py-4 text-lg rounded-2xl border-2 border-white/10 bg-white/5 backdrop-blur-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .movie-grid {
+    @apply grid gap-8;
+  }
+
+  .movie-details {
+    @apply bg-black/30 backdrop-blur-xl rounded-3xl border border-white/10 overflow-hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .genre-tag {
+    @apply px-4 py-2 rounded-full bg-white/10 text-white/90 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:bg-white/20;
+  }
+
+  .loading-spinner {
+    @apply w-12 h-12 border-4 border-purple-500/30 border-t-purple-500 rounded-full animate-spin;
+  }
+}
